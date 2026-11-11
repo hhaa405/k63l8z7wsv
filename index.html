@@ -37,6 +37,10 @@ async function reveal(key,ct){
   const h=new TextDecoder().decode(pt);
   document.open();document.write(h);document.close();
 }
+function saveKey(raw){
+  let s="";for(let i=0;i<raw.length;i++)s+=String.fromCharCode(raw[i]);
+  localStorage.setItem(K,btoa(s));
+}
 const saved=localStorage.getItem(K);
 if(saved){
   document.documentElement.classList.add("busy");
@@ -59,12 +63,12 @@ document.addEventListener("DOMContentLoaded",()=>{
       return {raw,key:await fromRaw(raw)};
     })();
     try{
+      const remember=document.getElementById("r").checked;
       const [{raw,key},ct]=await Promise.all([keyP,ctP]);
-      await reveal(key,ct);
-      if(document.getElementById("r").checked){
-        let s="";for(let i=0;i<raw.length;i++)s+=String.fromCharCode(raw[i]);
-        localStorage.setItem(K,btoa(s));
-      }
+      const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv},key,ct);
+      if(remember) saveKey(raw);
+      const h=new TextDecoder().decode(pt);
+      document.open();document.write(h);document.close();
     }catch(err){
       b.disabled=false;
       e.style.color="#dc2626";
