@@ -1,1 +1,1 @@
-PLACEHOLDER_WILL_BE_REPLACED
+sive:4473924,shininess:120})),.27,.24,.28),i(e,m(.12,.1,.03,.02,t(657936,{shininess:150})),-.28,.26,.28),i(e,y(.04,.04,.03,t(15790320)),.33,.4,.1);const l=C("photo",128,150,(f,s,r)=>{f.fillStyle="#fff",f.fillRect(0,0,s,r);const d=f.createLinearGradient(0,10,0,110);d.addColorStop(0,"#ffb27a"),d.addColorStop(1,"#5a7ab8"),f.fillStyle=d,f.fillRect(10,10,108,100),f.fillStyle="#2b2b3a",f.beginPath(),f.moveTo(10,110),f.lineTo(50,60),f.lineTo(80,90),f.lineTo(100,70),f.lineTo(118,110),f.fill()});i(e,z(.48,.56,.012,v(l)),0,.58,.05,-.1)}
